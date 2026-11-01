@@ -1,0 +1,43 @@
+name: CI Pipeline — Practical 12
+
+# Practical 12: Continuous Integration with GitHub Actions
+# Student: Priyanshi Padshala | 24IT056
+# Triggers automated tests on every push to the main branch
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Install Dependencies & Run Tests
+    runs-on: ubuntu-latest
+
+    env:
+      NODE_ENV: test
+      JWT_SECRET: practical12_ci_test_secret_key
+
+    steps:
+      # Step 1: Checkout repository code
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'server/package-lock.json'
+
+      # Step 3: Install dependencies (npm install)
+      - name: Install backend dependencies
+        working-directory: ./server
+        run: npm install
+
+      # Step 4: Run automated tests — reports clear PASS or FAIL status
+      - name: Run Jest & Supertest automated tests
+        working-directory: ./server
+        run: npm test

@@ -1,0 +1,314 @@
+/* ===== PROJECTS SECTION ===== */
+.projects {
+  background: transparent;
+  min-height: calc(100vh - var(--nav-height, 72px) - 80px);
+  padding-top: 120px;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.projects-subtitle {
+  color: var(--accent, #FFC857);
+  font-size: 0.98rem;
+  font-weight: 500;
+  margin-top: -45px;
+  margin-bottom: 25px;
+  letter-spacing: 0.3px;
+}
+
+/* ===== PROJECTS GRID ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ===== FEATURED PROJECT CARD STYLES ===== */
+.project-card {
+  background: var(--card-bg, rgba(42, 23, 78, 0.65));
+  border: 1px solid var(--card-border, rgba(255, 200, 87, 0.15));
+  border-radius: var(--radius, 16px);
+  padding: 28px;
+  transition: all var(--transition, 0.3s ease);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary, linear-gradient(135deg, #FF7A8A, #FFC857));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover, 0 8px 40px rgba(255, 122, 138, 0.28));
+  border-color: rgba(255, 200, 87, 0.35);
+}
+
+.project-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.project-icon {
+  font-size: 2rem;
+  opacity: 0.85;
+}
+
+.project-github-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 122, 138, 0.15);
+  color: var(--accent, #FFC857);
+  font-size: 1.1rem;
+  transition: all var(--transition, 0.3s ease);
+  flex-shrink: 0;
+}
+
+.project-github-link:hover {
+  background: var(--accent-coral, #FF7A8A);
+  color: #15092B;
+  transform: scale(1.1);
+}
+
+.project-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text, #FFFFFF);
+}
+
+.project-subtitle {
+  font-size: 0.82rem;
+  color: var(--accent, #FFC857);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.project-stack-tag {
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  color: #E9D5FF;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.project-points {
+  flex: 1;
+}
+
+.project-points li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  font-size: 0.88rem;
+  color: var(--text-secondary, #E9D5FF);
+  line-height: 1.6;
+}
+
+.project-points li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent, #FFC857);
+  font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 580px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== PROJECT CARD STATS ROW ===== */
+.project-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  flex-wrap: wrap;
+}
+
+.project-language-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--accent, #FFC857);
+  font-weight: 500;
+  margin-left: auto;
+}
+
+.project-language-tag .lang-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent, #FFC857);
+  flex-shrink: 0;
+}
+
+/* ===== GITHUB REPOSITORIES SECTION ===== */
+.github-repos-section {
+  margin-top: 80px;
+}
+
+.github-repos-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.github-profile-link {
+  color: var(--accent, #FFC857);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.github-profile-link:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+/* ===== SEARCH BAR ===== */
+.repos-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 540px;
+  margin: 0 auto 32px;
+  gap: 0;
+}
+
+.repos-search-icon {
+  position: absolute;
+  left: 16px;
+  font-size: 1rem;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.repos-search-input {
+  width: 100%;
+  padding: 13px 110px 13px 46px;
+  border-radius: 40px;
+  border: 1.5px solid rgba(255, 200, 87, 0.25);
+  background: rgba(42, 23, 78, 0.55);
+  color: var(--text, #FFFFFF);
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.repos-search-input::placeholder {
+  color: var(--text-secondary, #CBD5E1);
+  opacity: 0.6;
+}
+
+.repos-search-input:focus {
+  border-color: var(--accent, #FFC857);
+  box-shadow: 0 0 0 3px rgba(255, 200, 87, 0.15);
+}
+
+.repos-search-input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.repos-count {
+  position: absolute;
+  right: 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent, #FFC857);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ===== REPOS GRID ===== */
+.repos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .repos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .repos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .repos-search-input {
+    padding-right: 16px;
+  }
+
+  .repos-count {
+    display: none;
+  }
+}
+
+/* ===== EMPTY STATE ===== */
+.repos-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-secondary, #CBD5E1);
+  font-size: 0.98rem;
+  opacity: 0.75;
+}
