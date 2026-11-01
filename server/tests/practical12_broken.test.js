@@ -54,9 +54,8 @@ describe('Practical 12 — BROKEN TEST (Step 5: Deliberate Failure)', () => {
       .get('/tasks')
       .set('Authorization', `Bearer ${validToken}`);
 
-    // ❌ DELIBERATELY WRONG — actual response is 200, this will FAIL the CI pipeline
-    expect(res.statusCode).toBe(999);
+    // ✅ FIXED: actual response is 200, so the CI pipeline should pass
+    expect(res.statusCode).toBe(200);
   });
 
 });
-
